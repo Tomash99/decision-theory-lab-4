@@ -1,0 +1,13 @@
+C:\Users\Latitude\source\repos\Ocinka\bin\Debug\netcoreapp3.1\Ocinka.exe
+C:\Users\Latitude\source\repos\Ocinka\bin\Debug\netcoreapp3.1\Ocinka.deps.json
+C:\Users\Latitude\source\repos\Ocinka\bin\Debug\netcoreapp3.1\Ocinka.runtimeconfig.json
+C:\Users\Latitude\source\repos\Ocinka\bin\Debug\netcoreapp3.1\Ocinka.runtimeconfig.dev.json
+C:\Users\Latitude\source\repos\Ocinka\bin\Debug\netcoreapp3.1\Ocinka.dll
+C:\Users\Latitude\source\repos\Ocinka\bin\Debug\netcoreapp3.1\Ocinka.pdb
+C:\Users\Latitude\source\repos\Ocinka\obj\Debug\netcoreapp3.1\Ocinka.csprojAssemblyReference.cache
+C:\Users\Latitude\source\repos\Ocinka\obj\Debug\netcoreapp3.1\Ocinka.AssemblyInfoInputs.cache
+C:\Users\Latitude\source\repos\Ocinka\obj\Debug\netcoreapp3.1\Ocinka.AssemblyInfo.cs
+C:\Users\Latitude\source\repos\Ocinka\obj\Debug\netcoreapp3.1\Ocinka.csproj.CoreCompileInputs.cache
+C:\Users\Latitude\source\repos\Ocinka\obj\Debug\netcoreapp3.1\Ocinka.dll
+C:\Users\Latitude\source\repos\Ocinka\obj\Debug\netcoreapp3.1\Ocinka.pdb
+C:\Users\Latitude\source\repos\Ocinka\obj\Debug\netcoreapp3.1\Ocinka.genruntimeconfig.cache
