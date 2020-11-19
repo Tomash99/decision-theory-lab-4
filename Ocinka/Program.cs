@@ -11,6 +11,7 @@ namespace Ocinka
         static double[,] fileData4;
         static string[] fileAuto;
         static string[] fileProp;
+        static double[] fileWeight;
 
         static void Main(string[] args)
         {
@@ -20,6 +21,7 @@ namespace Ocinka
             GetData4();
             GetAuto();
             GetProp();
+            GetWeight();
 
             Console.WriteLine("Наявнi автомобiлi:");
             for (int i = 0; i < fileAuto.Length; i++)
@@ -35,46 +37,40 @@ namespace Ocinka
 
             Console.WriteLine("\nШкала оцiнювання: 1-20");
 
-            double BMW_acceleration = fileData1[0,0] + fileData2[0, 0] + fileData3[0, 0] + fileData4[0, 0];
-            double AUDI_Eacceleration = fileData1[1,0] + fileData2[1, 0] + fileData3[1, 0] + fileData4[1, 0];
-            double MERCEDES_acceleration = fileData1[2,0] + fileData2[2, 0] + fileData3[2, 0] + fileData4[2, 0];
-            double Rolls_acceleration = fileData1[3,0] + fileData2[3, 0] + fileData3[3, 0] + fileData4[3, 0];
+            double BMW_acceleration = Math.Round(fileWeight[0]*(fileData1[0,0] + fileData2[0, 0] + fileData3[0, 0] + fileData4[0, 0]),1);
+            double AUDI_Eacceleration = Math.Round(fileWeight[0] * (fileData1[1,0] + fileData2[1, 0] + fileData3[1, 0] + fileData4[1, 0]), 1);
+            double MERCEDES_acceleration = Math.Round(fileWeight[0] * (fileData1[2,0] + fileData2[2, 0] + fileData3[2, 0] + fileData4[2, 0]), 1);
+            double Rolls_acceleration = Math.Round(fileWeight[0] * (fileData1[3,0] + fileData2[3, 0] + fileData3[3, 0] + fileData4[3, 0]), 1);
 
-            double BMW_maxspeed = fileData1[0, 1] + fileData2[0, 1] + fileData3[0, 1] + fileData4[0, 1];
-            double AUDI_maxspeed = fileData1[1, 1] + fileData2[1, 1] + fileData3[1, 1] + fileData4[1, 1];
-            double MERCEDES_maxspeed = fileData1[2, 1] + fileData2[2, 1] + fileData3[2, 1] + fileData4[2, 1];
-            double Rolls_maxspeed = fileData1[3, 1] + fileData2[3, 1] + fileData3[3, 1] + fileData4[3, 1];
+            double BMW_maxspeed = Math.Round(fileWeight[1] * (fileData1[0, 1] + fileData2[0, 1] + fileData3[0, 1] + fileData4[0, 1]), 1);
+            double AUDI_maxspeed = Math.Round(fileWeight[1] * (fileData1[1, 1] + fileData2[1, 1] + fileData3[1, 1] + fileData4[1, 1]), 1);
+            double MERCEDES_maxspeed = Math.Round(fileWeight[1] * (fileData1[2, 1] + fileData2[2, 1] + fileData3[2, 1] + fileData4[2, 1]), 1);
+            double Rolls_maxspeed = Math.Round(fileWeight[1] * (fileData1[3, 1] + fileData2[3, 1] + fileData3[3, 1] + fileData4[3, 1]), 1);
 
-            double BMW_type = fileData1[0, 2] + fileData2[0, 2] + fileData3[0, 2] + fileData4[0, 2];
-            double AUDI_type = fileData1[1, 2] + fileData2[1, 2] + fileData3[1, 2] + fileData4[1, 1];
-            double MERCEDES_type = fileData1[2, 2] + fileData2[2, 2] + fileData3[2, 2] + fileData4[2, 2];
-            double Rolls_type = fileData1[3, 2] + fileData2[3, 2] + fileData3[3, 2] + fileData4[3, 2];
+            double BMW_type = Math.Round(fileWeight[2] * (fileData1[0, 2] + fileData2[0, 2] + fileData3[0, 2] + fileData4[0, 2]), 1);
+            double AUDI_type = Math.Round(fileWeight[2] * (fileData1[1, 2] + fileData2[1, 2] + fileData3[1, 2] + fileData4[1, 1]), 1);
+            double MERCEDES_type = Math.Round(fileWeight[2] * (fileData1[2, 2] + fileData2[2, 2] + fileData3[2, 2] + fileData4[2, 2]), 1);
+            double Rolls_type = Math.Round(fileWeight[2] * (fileData1[3, 2] + fileData2[3, 2] + fileData3[3, 2] + fileData4[3, 2]), 1);
 
-            double BMW_seats = fileData1[0, 3] + fileData2[0, 3] + fileData3[0, 3] + fileData4[0, 3];
-            double AUDI_seats = fileData1[1, 3] + fileData2[1, 3] + fileData3[1, 3] + fileData4[1, 3];
-            double MERCEDES_seats = fileData1[2, 3] + fileData2[2, 3] + fileData3[2, 3] + fileData4[2, 3];
-            double Rolls_seats = fileData1[3, 3] + fileData2[3, 3] + fileData3[3, 3] + fileData4[3, 3];
+            double BMW_seats = Math.Round(fileWeight[3] * (fileData1[0, 3] + fileData2[0, 3] + fileData3[0, 3] + fileData4[0, 3]), 1);
+            double AUDI_seats = Math.Round(fileWeight[3] * (fileData1[1, 3] + fileData2[1, 3] + fileData3[1, 3] + fileData4[1, 3]), 1);
+            double MERCEDES_seats = Math.Round(fileWeight[3] * (fileData1[2, 3] + fileData2[2, 3] + fileData3[2, 3] + fileData4[2, 3]), 1);
+            double Rolls_seats = Math.Round(fileWeight[3] * (fileData1[3, 3] + fileData2[3, 3] + fileData3[3, 3] + fileData4[3, 3]), 1);
 
-            //ВАГА
-            double acceleration_weight = BMW_acceleration + AUDI_Eacceleration + MERCEDES_acceleration + Rolls_acceleration;
-            double maxspeed_weight = BMW_maxspeed + AUDI_maxspeed + MERCEDES_maxspeed + Rolls_maxspeed;
-            double type_weight = BMW_type + AUDI_type + MERCEDES_type + Rolls_type;
-            double seats_weight = BMW_seats + AUDI_seats + MERCEDES_seats + Rolls_seats;
 
-            double weight_summary = acceleration_weight + maxspeed_weight + type_weight + seats_weight;
-            double bmw_summary = BMW_acceleration + BMW_maxspeed + BMW_type + BMW_seats;
-            double audi_summary = AUDI_Eacceleration + AUDI_maxspeed + AUDI_type + AUDI_seats;
-            double mercedes_summary = MERCEDES_acceleration + MERCEDES_maxspeed + MERCEDES_type + MERCEDES_seats;
-            double Rolls_summary = Rolls_acceleration + Rolls_maxspeed + Rolls_type + Rolls_seats;
+            double bmw_summary = Math.Round(BMW_acceleration + BMW_maxspeed + BMW_type + BMW_seats,1);
+            double audi_summary = Math.Round(AUDI_Eacceleration + AUDI_maxspeed + AUDI_type + AUDI_seats, 1);
+            double mercedes_summary = Math.Round(MERCEDES_acceleration + MERCEDES_maxspeed + MERCEDES_type + MERCEDES_seats, 1);
+            double Rolls_summary = Math.Round(Rolls_acceleration + Rolls_maxspeed + Rolls_type + Rolls_seats, 1);
 
             Console.WriteLine("Результат");
 
             Console.WriteLine("№ Параметр       | Вага   BMW  Audi  Mercedes  Rolls-Royse ");
-            Console.WriteLine($"1 0-100          | {acceleration_weight}    {BMW_acceleration}   {AUDI_Eacceleration}    {MERCEDES_acceleration}        {Rolls_acceleration} ");
-            Console.WriteLine($"2 Макс. швидкiсть| {maxspeed_weight}    {BMW_maxspeed}   {AUDI_maxspeed}    {MERCEDES_maxspeed}        {Rolls_maxspeed}");
-            Console.WriteLine($"3 Привiд         | {type_weight}    {BMW_type}   {AUDI_type}    {MERCEDES_type}        {Rolls_type}");
-            Console.WriteLine($"4 К-сть мiсць    | {seats_weight}    {BMW_seats}   {AUDI_seats}    {MERCEDES_seats}        {Rolls_seats}");
-            Console.WriteLine($"Сума             | {weight_summary}    {bmw_summary}  {audi_summary}   {mercedes_summary}       {Rolls_summary} ");
+            Console.WriteLine($"1 0-100          | {fileWeight[0]}    {BMW_acceleration}   {AUDI_Eacceleration}    {MERCEDES_acceleration}        {Rolls_acceleration} ");
+            Console.WriteLine($"2 Макс. швидкiсть| {fileWeight[1]}    {BMW_maxspeed}  {AUDI_maxspeed}    {MERCEDES_maxspeed}         {Rolls_maxspeed}");
+            Console.WriteLine($"3 Привiд         | {fileWeight[2]}    {BMW_type}    {AUDI_type}     {MERCEDES_type}      {Rolls_type}");
+            Console.WriteLine($"4 К-сть мiсць    | {fileWeight[3]}    {BMW_seats}  {AUDI_seats}    {MERCEDES_seats}      {Rolls_seats}");
+            Console.WriteLine($"Сума             |        {bmw_summary} {audi_summary}    {mercedes_summary}        {Rolls_summary} ");
 
 
 
@@ -211,7 +207,26 @@ namespace Ocinka
             return fileProp;
         }
 
-        
+        public static double[] GetWeight() // метод для зчитування і запису чисел в масив 
+        {
+            string filePath = Path.GetFullPath("Weight.txt");
+
+            using var fileReader = new StreamReader(filePath);
+            string file = fileReader.ReadToEnd();
+            string[] lines = file.Split('\n');
+
+
+            fileWeight = new double[lines.Length];
+
+            for (int i = 0; i < fileProp.Length; i++)
+            {
+                fileWeight[i] = Convert.ToDouble(lines[i]);
+                //Console.WriteLine($"{i} {fileProp[i]}");
+            }
+            return fileWeight;
+        }
+
+
 
     }
 }
